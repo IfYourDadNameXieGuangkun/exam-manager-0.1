@@ -1,0 +1,19 @@
+
+server:
+  port: 9092
+
+#dubbo:
+#  registry:
+#    protocol: zookeeper
+#    address: zookeeper://192.168.0.125:2181
+#  protocol:
+#    port: 20881
+#    name: dubbo
+#    id: dubbo
+#
+#  application:
+#    name: ticket-provider
+#    id: ticket-provider-id
+#
+#  scan:
+#    basePackages: com.aye.rpc.provider

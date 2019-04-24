@@ -1,0 +1,43 @@
+#spring:
+#  application:
+#    name: linshen-dubbo-consumer1
+
+#management:
+#  endpoint:
+#    dubbo-configs:
+#      enabled: true
+#    dubbo:
+#      enabled: true
+#    dubbo-services:
+#      enabled: true
+#    dubbo-properties:
+#      enabled: true
+#    dubbo-shutdown:
+#      enabled: true
+#    dubbo-references:
+#      enabled: true
+#  health:
+#    dubbo:
+#      status:
+#        defaults: memory
+#        extras: load,threadpool
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+server:
+  port: 9091
+
+dubbo:
+  application:
+    id: ticket-consumer-id
+    name: ticket-consumer
+  registry:
+    protocol: zookeeper
+    address: zookeeper://192.168.0.125:2181
+spring:
+  messages:
+    basename: i18n.login
+
+
+

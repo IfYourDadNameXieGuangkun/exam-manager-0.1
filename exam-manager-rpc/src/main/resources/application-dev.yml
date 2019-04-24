@@ -1,0 +1,47 @@
+#
+#spring:
+#  application:
+#    name: linshen-dubbo-provider1
+
+#management:
+#  endpoint:
+#    dubbo-configs:
+#      enabled: true
+#    dubbo:
+#      enabled: true
+#    dubbo-services:
+#      enabled: true
+#    dubbo-properties:
+#      enabled: true
+#    dubbo-shutdown:
+#      enabled: true
+#    dubbo-references:
+#      enabled: true
+#  health:
+#    dubbo:
+#      status:
+#        defaults: memory
+#        extras: load,threadpool
+#  endpoints:
+#    web:
+#      exposure:
+#        include: '*'
+
+server:
+  port: 9090
+
+dubbo:
+  registry:
+    protocol: zookeeper
+    address: zookeeper://192.168.0.125:2181
+  protocol:
+    port: 20881
+    name: dubbo
+    id: dubbo
+
+  application:
+    name: ticket-provider
+    id: ticket-provider-id
+
+  scan:
+    basePackages: com.aye.rpc.provider

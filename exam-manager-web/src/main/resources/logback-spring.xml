@@ -1,0 +1,30 @@
+<configuration>
+	<property name="LOG_HOME" value="/app/log"/>
+	<property name="appName" value="spring-boot-logback"/>
+	<property name="log.level" value="info"/>
+	<appender name="logfile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<!-- !dev 非dev环境-->
+		<springProfile name="!dev">
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/${appName}-%d{yyyy-MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%-5level][%-40logger{40}:%-5L] %msg%n</pattern>
+        </encoder>
+		</springProfile>
+	</appender>
+
+   	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<!-- 日志文件配置名称必须是 logback-spring.xml才能生效 springProfile标签-->
+		<springProfile name="dev">
+		<encoder>
+			<Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{50} %msg%n</Pattern>
+		</encoder>
+		</springProfile>
+	</appender>
+    <root level="${log.level}">
+		<appender-ref ref="logfile"/>
+		<appender-ref ref="STDOUT"/>
+    </root>
+    
+</configuration>
