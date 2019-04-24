@@ -1,4 +1,5 @@
- maven工程聚合分层说明:(可扩展 common层 utils层 ...)
+这次应该能行了吧吗的不行吗,,,,,   
+maven工程聚合分层说明:(可扩展 common层 utils层 ...)
     api:业务逻辑接口(暴露Dubbo接口)
     dao:数据访问层
     model:实体类
